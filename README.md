@@ -5,7 +5,8 @@ Solhia é uma assistente pessoal baseada em Python que utiliza reconhecimento de
 ## Arquitetura de diretórios
 
 A Solhia segue a seguinte estrutura de diretórios:
-"""
+
+```
 solhia/
 ├── audio/                  # Arquivos de áudio para a interação com a assistente
 │   ├── greeting.wav
@@ -33,7 +34,7 @@ solhia/
 ├── LICENSE
 ├── README.md
 └── requirements.txt
-"""
+```
 
 ## Instalação
 
@@ -64,5 +65,3 @@ Você pode contribuir para o desenvolvimento da Solhia reportando bugs, sugerind
 ## Licença
 
 Este projeto está sob a Licença BSD 3-cláusula "New". Consulte o arquivo `LICENSE` para obter mais informações.
-
-
