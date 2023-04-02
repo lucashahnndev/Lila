@@ -1,0 +1,16 @@
+{
+    "Wheather": {
+        "apiKey": "https://api.openweathermap.org/data/2.5/weather?lang=pt_br&appid=554eba1553b5109e300a1acfa2b43cb9&lat=-29.912987081382685&lon=-51.19992656468278",
+        "lat": "-29.912987081382685",
+        "lon": "-51.19992656468278"
+    },
+    "chatterbot": {
+        "nameBot": "Solhia"
+    },
+    "telegram": {
+        "botkey": "5333997686:AAHlHBfBxJGHDZ2g-3j17RV3fROYDzQ6hPg"
+    },
+    "facial": {
+	"rtsp": "rtsp://operador:operacao123@10.255.255.110:554/h265/ch7/main/av_stream"
+    }
+}
