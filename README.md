@@ -1,13 +1,13 @@
-# Solhia
+# Lila
 
-Solhia é uma assistente pessoal baseada em Python que utiliza reconhecimento de voz e gestos para interação. O projeto foi desenvolvido para o sistema operacional Windows e possui funcionalidades como meteorologia, curiosidades, abertura de programas e streams, agenda, tarefas, entre outros.
+Lila é uma assistente pessoal baseada em Python que utiliza reconhecimento de voz e gestos para interação. O projeto foi desenvolvido para o sistema operacional Windows e possui funcionalidades como meteorologia, curiosidades, abertura de programas e streams, agenda, tarefas, entre outros.
 
 ## Arquitetura de diretórios
 
-A Solhia segue a seguinte estrutura de diretórios:
+A Lila segue a seguinte estrutura de diretórios:
 
 ```
-solhia/
+Lila/
 ├── audio/                  # Arquivos de áudio para a interação com a assistente
 │   ├── greeting.wav
 │   ├── command_received.wav
@@ -25,7 +25,7 @@ solhia/
 ├── model/                  # Modelos de reconhecimento de voz e gestos
 │   ├── gesture_detection.pkl
 │   └── speech_recognition.pkl
-├── src/                    # Código-fonte da Solhia
+├── src/                    # Código-fonte da Lila
 │   ├── __init__.py
 │   ├── agenda.py
 │   ├── audio.py
@@ -43,18 +43,18 @@ solhia/
 
 ## Instalação
 
-1. Clone o repositório: `git clonehttps://github.com/lucashahnndev/solhia.git`
+1. Clone o repositório: `git clonehttps://github.com/lucashahnndev/Lila.git`
 2. Instale as dependências: `pip install -r requirements.txt`
 
 ## Utilização
 
 1. Abra o terminal na pasta do projeto
 2. Execute o arquivo `main.py`: `python main.py`
-3. Siga as instruções de voz e gestos para interagir com a Solhia
+3. Siga as instruções de voz e gestos para interagir com a Lila
 
 ## Funcionalidades
 
-A Solhia possui diversas funcionalidades, incluindo:
+A Lila possui diversas funcionalidades, incluindo:
 
 - Meteorologia: Obtém informações sobre o tempo em uma determinada cidade
 - Curiosidades: Fornece curiosidades aleatórias sobre vários tópicos
@@ -65,7 +65,7 @@ A Solhia possui diversas funcionalidades, incluindo:
 
 ## Contribuição
 
-Você pode contribuir para o desenvolvimento da Solhia reportando bugs, sugerindo novas funcionalidades ou enviando pull requests.
+Você pode contribuir para o desenvolvimento da Lila reportando bugs, sugerindo novas funcionalidades ou enviando pull requests.
 
 ## Licença
 
