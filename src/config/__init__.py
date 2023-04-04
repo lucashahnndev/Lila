@@ -1,1 +1,1 @@
-from config.main import BOT_NAME, OPENAI_API_KEY,TEXT_MODE
+from config.main import BOT_NAME, OPENAI_API_KEY, GOOGLE_CLOUD_API_KEY

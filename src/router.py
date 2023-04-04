@@ -1,7 +1,7 @@
 # import memory
 # from chatterbot_bot import response_to_user
 from greeting import if_its_a_greeting
-from command import if_its_a_command_open_program, if_its_a_command_search,if_its_a_key_command
+from command import if_its_a_command_open_program, if_its_a_command_search, if_its_a_key_command, if_its_a_command_play_in_youtube
 from text_to_speech import speak
 import os
 
@@ -14,7 +14,7 @@ def process(id_user, mensagem, name_param):
     global name
     name = name_param
     result = 0
-    if mensagem.lower() == 'sair':
+    if mensagem.lower() == 'sair do chat':
         speak('Até  mais.')
         exit()
 
@@ -34,7 +34,12 @@ def process(id_user, mensagem, name_param):
     if if__key_command is not None:
         result = 1
         return if__key_command
-    
+
+    if__youtube = if_its_a_command_play_in_youtube(mensagem)
+    if if__youtube is not None:
+        result = 1
+        return if__youtube
+
     if__search = if_its_a_command_search(mensagem)
     if if__search is not None:
         result = 1
@@ -57,4 +62,4 @@ def process(id_user, mensagem, name_param):
 
     if result == 0:
         return 'Não entendi o que você quis dizer.'
-        # eturn response_to_user(mensagem)
+        #return response_to_user(mensagem)

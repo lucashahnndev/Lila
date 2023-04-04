@@ -4,6 +4,7 @@ import pyttsx3
 import sys
 import os
 import threading
+from config import BOT_NAME
 
 
 TEXT_MODE = os.environ.get('TEXT_MODE')
@@ -53,11 +54,15 @@ def speak(text):
     try:
         if TEXT_MODE == 'False':
             print('Modo texto desativado')
-            thread_speak = threading.Thread(target=speak_with_voice, args=(text,))
-            thread_speak.start()
+            #thread_speak = threading.Thread(target=speak_with_voice, args=(text,))
+            #thread_speak.start()
+            speak_with_voice(text)
         else:
             print('Modo texto ativado')
-        print('Solhia:  ', text)
+        print(f'{BOT_NAME}:  ', text)
     except Exception as error:
         log(error, 'logs/log.log')
     
+
+if __name__ == "__main__":
+        speak("Olá, meu nome é Lila, e sou a sua assistente virtual. Como posso ajudar?")

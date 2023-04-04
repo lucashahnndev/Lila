@@ -5,13 +5,16 @@
         "lon": "-51.19992656468278"
     },
     "chatterbot": {
-        "nameBot": "Solhia"
+        "nameBot": "Lila"
     },
     "telegram": {
         "botkey": "5333997686:AAHlHBfBxJGHDZ2g-3j17RV3fROYDzQ6hPg"
     },
     "openai": {
         "token": "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"
+    },
+    "google_cloud": {
+        "token":"AIzaSyBCKjgNX4JeUGw7BC8rLet219A0zHIsRgQ"
     },
     "facial": {
         "rtsp": "rtsp://operador:operacao123@10.255.255.110:554/h265/ch7/main/av_stream"

@@ -13,11 +13,14 @@ confirmation = ([
     'fazendo uma pesquisa na internet por',
     'pesquisando na internet por',
     'fazendo uma pesquisa por'])
+ok = (["ok", "certo", "entendido", "sim", "claro"])
+
 
 edge_terms_list = ['no edge', 'pelo navegador edge', 'usando o edge','usando edge']
 chrome_terms_list = ['no chrome', 'pelo navegador chrome', 'usando o chrome','usando chrome']
 google_terms_list = ['no google', 'pelo navegador google', 'usando o google','usando google']
 bing_terms_list = ['no bing', 'pelo motor bing', 'usando o bing','usando bing']
+youtube_terms_list = ['no youtube', 'pelo motor youtube', 'usando o youtube','usando youtube']
 
 def search_in_bronser(query):
     bronser = ''
@@ -48,11 +51,20 @@ def search_in_bronser(query):
         bronser_motor = 'usando Bing'
         for term in bing_terms_list:
             query = query.replace(term, '')   
+            
+    if 'youtube' in query:
+        bronser = 'chrome '
+        url = f"-app=https://www.youtube.com/results?search_query="
+        if bronser == 'microsoft-edge:':
+            url = f"https://www.youtube.com/results?search_query="
+        bronser_motor = 'usando Youtube'
+        for term in youtube_terms_list:
+            query = query.replace(term, '')   
              
              
     os.popen(f"start {bronser}{url}{query.replace(' ', '+')}")
     
-    return f'{random.choice(confirmation)} {query} {bronser_motor} {bronser_name}'
+    return f'{random.choice(ok)}, {random.choice(confirmation)} {query} {bronser_motor} {bronser_name}'
 
 
 def remove_aditional_terms(query, term, aditional_search_terms):

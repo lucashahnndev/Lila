@@ -14,3 +14,4 @@ BOT_NAME = config['chatterbot']['nameBot']
 
 OPENAI_API_KEY = config['openai']['token']
 
+GOOGLE_CLOUD_API_KEY = config['google_cloud']['token']

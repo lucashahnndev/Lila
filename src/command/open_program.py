@@ -16,6 +16,8 @@ confirmation = ([
     'executando',
     'rodando'
 ])
+ok = (["ok", "certo", "entendido", "sim", "claro"])
+
 
 confirm = (['O app foi executado com sucesso.', "aberto com sucesso", "iniciado com sucesso",
            "executado com sucesso", "rodado com sucesso", "O app foi iniciado com sucesso.",  " foi executado com sucesso."])
@@ -111,5 +113,5 @@ def if_its_a_command_open_program(message):
                 run_program_ = threading.Thread(
                     target=run_program, args=(query,))
                 run_program_.start()
-                return f'{random.choice(confirmation)} {query}'
+                return f'{random.choice(ok)}, {random.choice(confirmation)} {query}'
     return None
