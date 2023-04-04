@@ -1,10 +1,16 @@
 import pickle
-from  os import path
+from os import path
+import os
+import sys
+# obter o cominho do arquivo
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# ir para parent_dir
+sys.path.append(parent_dir)
 
 
-def historic_process(id_telegram, mensagem_from_bot):
+def historic_process(id_user, mensagem_from_bot):
     historic = []
-    file_name = f"historic/{id_telegram}.pkl"
+    file_name = f"{parent_dir}/historic/{id_user}.pkl"
     if path.exists(file_name):
         open_file = open(file_name, "rb")
         historic = pickle.load(open_file)
@@ -20,9 +26,9 @@ def historic_process(id_telegram, mensagem_from_bot):
     return last_item
 
 
-def query(id_telegram):
+def query(id_user):
     historic = []
-    file_name = f"historic/{id_telegram}.pkl"
+    file_name = f"{parent_dir}/historic/{id_user}.pkl"
     if path.exists(file_name):
         open_file = open(file_name, "rb")
         historic = pickle.load(open_file)

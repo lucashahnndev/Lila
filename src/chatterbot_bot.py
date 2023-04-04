@@ -1,4 +1,3 @@
-import json
 import random
 from debug import log
 from chatterbot import ChatBot
@@ -7,11 +6,9 @@ from chatterbot.logic import BestMatch, MathematicalEvaluation, UnitConversion
 from adapters import weather_adapter
 from adapters import time_adapter
 from adapters import search_in_wikipedia_adapter
-
+from config import BOT_NAME as name_bot
 # config
-file_config = open('data/config.json', 'r')
-config = json.load(file_config)
-name_bot = config['chatterbot']['nameBot']
+
 iabot = ChatBot(
     name_bot,
     logic_adapters=[

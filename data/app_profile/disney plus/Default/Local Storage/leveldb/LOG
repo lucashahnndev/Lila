@@ -1,0 +1,5 @@
+2023/04/03-19:01:21.670 1e2c Creating DB C:\Users\Administrador\Documents\GitHub\solhia\solhia\data\app_profile\disney plus\Default\Local Storage\leveldb since it was missing.
+2023/04/03-19:01:21.681 1e2c Reusing MANIFEST C:\Users\Administrador\Documents\GitHub\solhia\solhia\data\app_profile\disney plus\Default\Local Storage\leveldb/MANIFEST-000001
+2023/04/03-19:01:36.695 1d18 Level-0 table #5: started
+2023/04/03-19:01:36.705 1d18 Level-0 table #5: 22673 bytes OK
+2023/04/03-19:01:36.708 1d18 Delete type=0 #3

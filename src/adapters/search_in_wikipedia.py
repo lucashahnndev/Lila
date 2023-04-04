@@ -6,7 +6,7 @@ from chatterbot.conversation import Statement
 
 wikipedia.set_lang("pt")
 
-words = ['quem e','busque para mim sobre','busque para mim', 'o que e um','o que e', 'veja no wikipwdia', 'busque na wikipedia', 'o que a wikipedia diz', 'a origem', 'da onde vem', 'de onde vem', 'quem fez', 'quem construi', 'quem criou', 'quem foi o primeiro', 'pesquise']
+words = ['quem e','busque para mim sobre','busque para mim na wikipedia', 'o que e um','o que e', 'veja no wikipwdia', 'busque na wikipedia', 'o que a wikipedia diz', 'a origem', 'da onde vem', 'de onde vem', 'quem fez', 'quem construiu', 'quem criou', 'quem foi o primeiro', 'pesquise na wikipedia', 'me diga um resumo' ]
 
 class search_in_wikipedia_adapter(LogicAdapter):
     def __init__(self, chatbot, **kwargs):

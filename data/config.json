@@ -10,7 +10,10 @@
     "telegram": {
         "botkey": "5333997686:AAHlHBfBxJGHDZ2g-3j17RV3fROYDzQ6hPg"
     },
+    "openai": {
+        "token": "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"
+    },
     "facial": {
-	"rtsp": "rtsp://operador:operacao123@10.255.255.110:554/h265/ch7/main/av_stream"
+        "rtsp": "rtsp://operador:operacao123@10.255.255.110:554/h265/ch7/main/av_stream"
     }
 }
