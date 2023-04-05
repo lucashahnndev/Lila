@@ -53,7 +53,9 @@ def open_internet_app(app, url):
             # Se não encontrar, significa que a janela foi fechada, então o loop é interrompido
             break
 
+
+
 if __name__ == '__main__':
-    app = 'netflix'
+    """ app = 'netflix'
     url = 'https://www.netflix.com/br/'
-    open_internet_app(app, url)
+    open_internet_app(app, url) """

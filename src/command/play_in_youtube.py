@@ -18,7 +18,8 @@ aditional_search_terms = ['sobre ', 'sobre o ', 'sobre a ', 'por ', 'faça uma '
                           'desenho do ', 'desenho da', 'desenho de ', 
                           'filme do', 'filme da', 'filme de ',
                           'musica da ', 'musica de ', 'musica do ', 
-                          'filme de ', 'filme da ', 'filme do ']
+                          'filme de ', 'filme da ', 'filme do ',
+                          'abrir','abrir o', 'o']
 
 confirmation = ([
     "reprodusindo a primeira opção de",
@@ -33,32 +34,20 @@ confirmation = ([
 ok = (["ok", "certo", "entendido", "sim", "claro"])
 
 def play_in_youtube(query):
-    # constrói o serviço da API de pesquisa do YouTube
-    youtube_service = build('youtube', 'v3', developerKey=GOOGLE_CLOUD_API_KEY)
-    bronser = 'chrome '
-    # envia uma solicitação de pesquisa para a API do YouTube e obtém o ID do vídeo do primeiro resultado
-    search_response = youtube_service.search().list(
-        q=query.replace(' ', '+'),
-        part='id,snippet',
-        type='video',
-        videoDefinition='high',
-        maxResults=1
-    ).execute()
-    # obtém o ID do vídeo do primeiro resultado da pesquisa
-    video_id = search_response['items'][0]['id']['videoId']
+    url_video = f'watch?v={get_first_video_(query)}'
+    if query is None or query == '':
+        url_video = ''
     
-    # define a URL do vídeo
-    url = f"-app=https://www.youtube.com/watch?v={video_id}"
+    bronser = 'chrome '
+    url = f"-app=https://www.youtube.com/{url_video}"
     if bronser == 'microsoft-edge:':
-        url = f"https://www.youtube.com/watch?v={video_id}"
-    print(url)
+        url = f"https://www.youtube.com/{url_video}"
+        
     os.popen(f"start {bronser}{url}")
+    
     pyautogui.sleep(5)
-    #preciona a tecla f para maximizar a janela
     pyautogui.hotkey('f')
-    # pressiona a tecla F11 para maximizar a janela
     pyautogui.hotkey('f11')
-
     return f'{random.choice(ok)}, {random.choice(confirmation)} {query} no youtube'
 
 
@@ -82,6 +71,17 @@ def if_its_a_command_play_in_youtube(message):
                 return play_in_youtube(query)
     return None
 
+def get_first_video_(query):
+    youtube_service = build('youtube', 'v3', developerKey=GOOGLE_CLOUD_API_KEY)
+    search_response = youtube_service.search().list(
+        q=query.replace(' ', '+'),
+        part='id,snippet',
+        type='video',
+        videoDefinition='high',
+        maxResults=1
+    ).execute()
+    video_id = search_response['items'][0]['id']['videoId']
+    return video_id
 
 """
 from googleapiclient.discovery import build

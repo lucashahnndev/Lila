@@ -11,10 +11,14 @@
         "botkey": "5333997686:AAHlHBfBxJGHDZ2g-3j17RV3fROYDzQ6hPg"
     },
     "openai": {
-        "token": "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"
+        "organization_id":"org-RzXfrXb5V3VEZzCqNOUBka9s",
+        "token": "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"
     },
     "google_cloud": {
-        "token":"AIzaSyBCKjgNX4JeUGw7BC8rLet219A0zHIsRgQ"
+        "token": "AIzaSyBCKjgNX4JeUGw7BC8rLet219A0zHIsRgQ"
+    },
+    "google_maps": {
+        "token": "AIzaSyBz6jMURlxl3GlAhL26tj5MHeiMStnWTWA"
     },
     "facial": {
         "rtsp": "rtsp://operador:operacao123@10.255.255.110:554/h265/ch7/main/av_stream"

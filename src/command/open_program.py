@@ -78,6 +78,14 @@ def run_program(program):
         webbrowser_ = True
         url = 'https://www.youtube.com/'
     
+    if 'youtube music' in program:
+        webbrowser_ = True
+        url = 'https://music.youtube.com/'
+        
+    if 'spotify' in program:
+        webbrowser_ = True
+        url = 'https://open.spotify.com/'
+    
     if 'star plus' in program:
         webbrowser_ = True
         url = 'https://www.starplus.com/pt-br'    
@@ -93,6 +101,71 @@ def run_program(program):
     if 'hbomax' in program or 'hbo' in program:
         webbrowser_ = True
         url = 'https://play.hbomax.com/'
+        
+    if 'maps' in program or 'mapa' in program:
+        webbrowser_ = True
+        url = 'https://www.google.com.br/maps/preview'
+    if 'google' in program:
+        webbrowser_ = True
+        url = 'https://www.google.com.br/'
+    
+    if 'facebook' in program:
+        webbrowser_ = True
+        url = 'https://www.facebook.com/'
+        
+    if 'instagram' in program:
+        webbrowser_ = True
+        url = 'https://www.instagram.com/'
+    
+    if 'whatsapp' in program:
+        webbrowser_ = True
+        url = 'https://web.whatsapp.com/'
+    
+    if 'telegram' in program:
+        webbrowser_ = True
+        url = 'https://web.telegram.org/'
+        
+    if 'twitter' in program:
+        webbrowser_ = True
+        url = 'https://twitter.com/'
+        
+    if 'tiktok' in program:
+        webbrowser_ = True
+        url = 'https://www.tiktok.com/pt-BR/'
+        
+    if 'linkedin' in program:
+        webbrowser_ = True
+        url = 'https://www.linkedin.com/'
+        
+    if 'github' in program:
+        webbrowser_ = True
+        url = 'https://github.com/'
+    
+    if 'gmail' in program:
+        webbrowser_ = True
+        url = 'https://mail.google.com/mail/u/0/#inbox'
+        
+    if 'outlook' in program:
+        webbrowser_ = True
+        url = 'https://outlook.live.com/mail/inbox'
+    
+    if 'drive' in program or 'google drive' in program:
+        webbrowser_ = True
+        url = 'https://drive.google.com/drive/my-drive'
+        
+    if 'dropbox' in program:
+        webbrowser_ = True
+        url = 'https://www.dropbox.com/home'
+    
+    if 'onedrive' in program:
+        webbrowser_ = True
+        url = 'https://onedrive.live.com/'
+        
+    if 'mega' in program:
+        webbrowser_ = True
+        url = 'https://mega.nz/'
+        
+    
     
     if webbrowser_ == False:
         open_program(program,program_=program_)

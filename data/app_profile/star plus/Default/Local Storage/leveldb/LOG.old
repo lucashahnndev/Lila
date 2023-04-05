@@ -1,8 +1,0 @@
-2023/04/03-19:02:24.338 1b48 Reusing MANIFEST C:\Users\Administrador\Documents\GitHub\solhia\solhia\data\app_profile\star plus\Default\Local Storage\leveldb/MANIFEST-000001
-2023/04/03-19:02:24.342 1b48 Recovering log #3
-2023/04/03-19:02:24.344 1b48 Level-0 table #3: started
-2023/04/03-19:02:24.355 1b48 Level-0 table #3: 21753 bytes OK
-2023/04/03-19:02:24.356 1b48 Recovering log #4
-2023/04/03-19:02:24.358 1b48 Reusing old log C:\Users\Administrador\Documents\GitHub\solhia\solhia\data\app_profile\star plus\Default\Local Storage\leveldb/000004.log 
-2023/04/03-19:02:24.363 1b48 Delete type=0 #3
-2023/04/03-19:02:24.363 1b48 Delete type=2 #5

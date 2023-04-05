@@ -13,5 +13,7 @@ config = json.load(file_config)
 BOT_NAME = config['chatterbot']['nameBot']
 
 OPENAI_API_KEY = config['openai']['token']
+OPENAI_ORGANIZATION_ID = config['openai']['organization_id']
 
 GOOGLE_CLOUD_API_KEY = config['google_cloud']['token']
+GOOGLE_MAPS_API_KEY = config['google_maps']['token']

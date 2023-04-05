@@ -1,7 +1,7 @@
 import openai
-from config import OPENAI_API_KEY
+from config import OPENAI_API_KEY,OPENAI_ORGANIZATION_ID
 
-openai.organization = "org-RzXfrXb5V3VEZzCqNOUBka9s"
+openai.organization = OPENAI_ORGANIZATION_ID
 openai.api_key = OPENAI_API_KEY
 #list = openai.Model.list()
 #este codigo é um modulo de conexção com a api do open ai
@@ -10,20 +10,23 @@ openai.api_key = OPENAI_API_KEY
 #usado para criar uma conversa
 #a função deve receber uma pergunta e retornar uma resposta
 
-""" def response_to_user(mensagem):
+def response_to_user(mensagem):
     completion = openai.ChatCompletion.create(
+        max_tokens=150,
+        n=1,
+        temperature=0.9,
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": mensagem}]
     )
     return completion.choices[0].text
- """
 
-completion = openai.Completion()
 
-start_chat_log = '''Human: De agora em diante você será meu assistente virtual. seu nome será Solhia.
-AI: Ok, de agora em diante meu nome é Solhia. como posso te ajudar?
+#completion = openai.Completion()
+
+start_chat_log = '''Human: De agora em diante você será meu assistente virtual. seu nome será Lila.
+AI: Ok, de agora em diante meu nome é Lila. como posso te ajudar?
 '''
-def response_to_user(question, chat_log=None):
+""" def response_to_user(question, chat_log=None):
     if chat_log is None:
         chat_log = start_chat_log
     prompt = f'{chat_log}Human: {question}\nAI:'
@@ -33,3 +36,4 @@ def response_to_user(question, chat_log=None):
         max_tokens=150)
     answer = response.choices[0].text.strip()
     return answer
+ """
