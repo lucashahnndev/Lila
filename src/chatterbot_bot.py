@@ -1,3 +1,4 @@
+import os
 import random
 from debug import log
 from chatterbot import ChatBot
@@ -7,7 +8,11 @@ from adapters import weather_adapter
 from adapters import time_adapter
 from adapters import search_in_wikipedia_adapter
 from config import BOT_NAME as name_bot
+import sys
 # config
+
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(parent_dir)
 
 iabot = ChatBot(
     name_bot,
@@ -45,7 +50,7 @@ def response_to_user(mensagem):
         if resposta.confidence > 0.0:
             return resposta.text
         else:
-            return random.choice(i_didn_t_understand)
+            return random.choice(i_didn_t_understand), False
     except Exception as error:
         log(error, 'logs/log.log')
-        return '"' + random.choice(i_didn_t_understand)
+        return '"' + random.choice(i_didn_t_understand), False

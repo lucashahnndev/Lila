@@ -1,68 +1,72 @@
 import re
-from debug import log
 import pyttsx3
+import pyttsx3.voice
 import sys
 import os
 import threading
-from config import BOT_NAME
+from google.cloud import texttospeech
+import time
+import pygame
 
-
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(parent_dir)
 TEXT_MODE = os.environ.get('TEXT_MODE')
 
-def clean_text(text):
-    """
-    Função que limpa o texto de caracteres especiais e substitui algumas abreviações.
-    """
-    # substitui o grau pelo texto "graus"
-    text = text.replace("º", " graus ")
-
-    # substitui aspas simples e duplas por nada
-    text = text.replace("'", "")
-    text = text.replace('"', '')
-
-    # substitui abreviações por seus significados
-    abbreviations = {"cm": "centímetros", "kg": "quilogramas", "mm": "milímetros",
-                     "cm²": "centímetros quadrados", "m²": "metros quadrados", "km²": "quilômetros quadrados", "+": "mais", "-": "menos", "*": "vezes", "/": "dividido por","=":"igual a"}
-    for abbreviation, meaning in abbreviations.items():
-        text = text.replace(abbreviation, meaning)
-
-    return text
+from debug import log
+from config import BOT_NAME
+    
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = f'{os.path.dirname(parent_dir)}\\data\\Lia-5732d88a57a2.json'
+audio_file = f'{os.path.dirname(parent_dir)}\data\cache\output.mp3'
 
 
-def remove_special_chars(text):
-    """
-    Remove caracteres especiais que podem ser problemáticos para softwares de transcrição de voz.
-    """
-    cleaned_text = clean_text(text)
-    return re.sub(r'[^\w\s]', '', cleaned_text)
+def write_file(response):
+    with open(audio_file, 'wb') as out:
+        out.write(response.audio_content)
+        out.close()
+    return response
+        
 
 def speak_with_voice(text):
-    try:
-        engine = pyttsx3.init()
-        voices = engine.getProperty("voices")
-        engine.setProperty("voice", voices[0].id)
-        engine.say(text)
-        engine.runAndWait()
-    finally:
-        engine.stop()
+    client = texttospeech.TextToSpeechClient()
+    synthesis_input = texttospeech.SynthesisInput(text=text)
+    voice = texttospeech.VoiceSelectionParams(
+        language_code='pt-BR',
+        name='pt-BR-Wavenet-C',
+        ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+    )
+    audio_config = texttospeech.AudioConfig(
+        audio_encoding=texttospeech.AudioEncoding.MP3
+    )
+    response = client.synthesize_speech(
+        input=synthesis_input,
+        voice=voice,
+        audio_config=audio_config
+    )
+    audio_reproduction(write_file(response))
 
-  
-def speak(text):
-    os.system('cls' if os.name == 'nt' else 'clear')
+def audio_reproduction(audio_file):
+    pygame.init()
+    pygame.mixer.music.load(audio_file)
+    pygame.mixer.music.play()
+
+    while pygame.mixer.music.get_busy():
+        pass
+    pygame.quit()
     
+def speak(text):
     TEXT_MODE = os.environ.get('TEXT_MODE')
     try:
         if TEXT_MODE == 'False':
             print('Modo texto desativado')
-            #thread_speak = threading.Thread(target=speak_with_voice, args=(text,))
-            #thread_speak.start()
             speak_with_voice(text)
         else:
             print('Modo texto ativado')
         print(f'{BOT_NAME}:  ', text)
     except Exception as error:
         log(error, 'logs/log.log')
-    
 
 if __name__ == "__main__":
-        speak("Olá, meu nome é Lila, e sou a sua assistente virtual. Como posso ajudar?")
+    os.environ['TEXT_MODE'] = 'False'
+    while True:
+        user = input('Digite algo: ')
+        speak(user)

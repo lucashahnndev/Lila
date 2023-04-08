@@ -15,11 +15,11 @@ search_terms = ['pesquisar no youtube ', 'pesquise no youtube', 'pesquisa no you
 
 aditional_search_terms = ['sobre ', 'sobre o ', 'sobre a ', 'por ', 'faça uma ', 'realize uma ', 'de ',
                           'video de ', 'video do ', 'video da ',
-                          'desenho do ', 'desenho da', 'desenho de ', 
+                          'desenho do ', 'desenho da', 'desenho de ',
                           'filme do', 'filme da', 'filme de ',
-                          'musica da ', 'musica de ', 'musica do ', 
+                          'musica da ', 'musica de ', 'musica do ',
                           'filme de ', 'filme da ', 'filme do ',
-                          'abrir','abrir o', 'o']
+                          'abrir', 'abrir o', 'o']
 
 confirmation = ([
     "reprodusindo a primeira opção de",
@@ -30,25 +30,30 @@ confirmation = ([
     "abrindo a primeira ocorrencia de",
     "tocando a primeira ocorrencia de",
     "rodando a primeira ocorrencia de",
-    ])
+])
 ok = (["ok", "certo", "entendido", "sim", "claro"])
 
+
 def play_in_youtube(query):
+    confirmation_str = random.choice(confirmation)
+    no = "no youtube"
     url_video = f'watch?v={get_first_video_(query)}'
     if query is None or query == '':
         url_video = ''
-    
+        confirmation_str = 'abrindo o youtube'
+        no = ''
+
     bronser = 'chrome '
     url = f"-app=https://www.youtube.com/{url_video}"
     if bronser == 'microsoft-edge:':
         url = f"https://www.youtube.com/{url_video}"
-        
+
     os.popen(f"start {bronser}{url}")
-    
+
     pyautogui.sleep(5)
     pyautogui.hotkey('f')
     pyautogui.hotkey('f11')
-    return f'{random.choice(ok)}, {random.choice(confirmation)} {query} no youtube'
+    return f'{random.choice(ok)}, {confirmation_str} {query} {no}'
 
 
 def remove_aditional_terms(query, term, aditional_search_terms):
@@ -61,7 +66,7 @@ def remove_aditional_terms(query, term, aditional_search_terms):
     return query.replace('_*_', '')
 
 
-def if_its_a_command_play_in_youtube(message):  
+def if_its_a_command_play_in_youtube(message):
     message = message.lower()
     query = message
     for term in search_terms:
@@ -70,6 +75,7 @@ def if_its_a_command_play_in_youtube(message):
             if query is not None:
                 return play_in_youtube(query)
     return None
+
 
 def get_first_video_(query):
     youtube_service = build('youtube', 'v3', developerKey=GOOGLE_CLOUD_API_KEY)
@@ -82,33 +88,3 @@ def get_first_video_(query):
     ).execute()
     video_id = search_response['items'][0]['id']['videoId']
     return video_id
-
-"""
-from googleapiclient.discovery import build
-import webbrowser
-
-# define a palavra-chave de busca
-search_query = "python tutorial"
-
-# constrói o serviço da API de pesquisa do YouTube
-youtube_service = build('youtube', 'v3', developerKey='sua-chave-de-API')
-
-# envia uma solicitação de pesquisa para a API do YouTube e obtém o ID do vídeo do primeiro resultado
-search_response = youtube_service.search().list(
-    q=search_query,
-    part='id,snippet',
-    type='video',
-    videoDefinition='high',
-    maxResults=1
-).execute()
-
-# obtém o ID do vídeo do primeiro resultado da pesquisa
-video_id = search_response['items'][0]['id']['videoId']
-
-# define a URL do vídeo
-video_url = f'https://www.youtube.com/watch?v={video_id}'
-
-# abre a URL do vídeo no navegador padrão em tela cheia e com autoplay
-webbrowser.open(video_url, new=0, autoraise=True)
-
-"""

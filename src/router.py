@@ -1,5 +1,5 @@
 # import memory
-# from chatterbot_bot import response_to_user
+from chatterbot_bot import response_to_user
 from greeting import if_its_a_greeting
 from command import if_its_a_command_open_program, if_its_a_command_search, if_its_a_key_command, if_its_a_command_play_in_youtube,if_its_a_command_search_in_maps
 from command import if_its_a_command_play_in_youtube_music
@@ -72,6 +72,6 @@ def process(id_user, mensagem, name_param):
             return memory_a """
 
     if result == 0:
-        #return 'Não entendi o que você quis dizer.'
-        return open_ai_conector.response_to_user(mensagem)
+        return 'Não entendi o que você quis dizer.', False
+        #return open_ai_conector.response_to_user(mensagem)
         #return response_to_user(mensagem)

@@ -34,7 +34,7 @@ ok = (["ok", "certo", "entendido", "sim", "claro"])
 def open_in_maps(query,old_query):
     user_location_lat, user_location_lon = get_location()
     maps_url = f"https://www.google.com/maps/search/?api=1&query={query}&query_place_id={query}&center={user_location_lat},{user_location_lon}"
-    
+    print(maps_url)
     bronser = 'chrome '
     url = f'-app="{maps_url}"'
     if bronser == 'microsoft-edge:':
@@ -53,6 +53,8 @@ def remove_starting_string(starting_string, target_string):
         return None
 
 def remove_aditional_terms(query, term, aditional_search_terms):
+    if query == None or query == '':
+        return None
     query = query.replace('  ', ' ')
     query = query.replace(f'{term}', '_*_')
     aditional_terms_in_query = False

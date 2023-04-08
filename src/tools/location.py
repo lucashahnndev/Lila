@@ -9,7 +9,7 @@ parent_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__f
 #ir para parent_dir
 sys.path.append(parent_dir)
 
-cache_file = f'{parent_dir}\\data\\chache\\location_cache.txt'
+cache_file = f'{parent_dir}\\data\\cache\\location_cache.txt'
 if_folder_not_exists_create_it(cache_file)
 
 def get_location():

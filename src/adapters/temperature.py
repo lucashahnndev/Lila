@@ -1,8 +1,13 @@
+import os
+
 from chatterbot.logic import LogicAdapter
 from chatterbot.conversation import Statement
 from json import load
 from unidecode import unidecode
-file_config = open('data/config.json', 'r')
+
+parent_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+file_config = open(f'{parent_dir}/data/config.json', 'r')
+
 config = load(file_config)
 Api_Key = config['Wheather']['apiKey']
 lat = config['Wheather']['lat']
